@@ -1,13 +1,4 @@
-/*
 
-Template Name: LMSzai  Responsive  HTML5 Template
-Template URI: https://lmszai.zainikthemes.com/
-Description: LMSzai  Responsive  HTML5 Template
-Developer: Mahmudul Hasan Sohel
-Author URI: https://zainiklab.com/
-Version: 1.0
-
-*/
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   --white: #ffffff;
@@ -26,7 +17,7 @@ Version: 1.0
   --para-text-alt: #52526c;
   --yellow: #ffd25d;
   --yellow-1: #ffc107;
-  --purple: #704fe6;
+  --purple: #411472;
   --green: #45c881;
   --purple-light: #7a5ede;
   --blue-alt: #180f37;
@@ -7628,7 +7619,7 @@ input[type=number] {
   color: var(--white-65);
 }
 .landing-footer-learning .footer-contact-info ul li .iconify {
-  color: var(--yellow);
+  color: #fff !important;
 }
 .landing-footer-learning .copyright-text p {
   color: var(--white-65) !important;

@@ -27,9 +27,9 @@
                         <p class="font-14 mb-30">{{__('Already have an account?')}} <a href="{{route('login')}}"
                                 class="color-hover text-decoration-underline font-medium">{{__('Sign In')}}</a></p>
 
-                        <div class="row mb-30">
+                        <div class="row mb-20">
                             <div class="col-md-12">
-                                <label class="label-text-title color-heading font-medium font-16 mb-3"
+                                <label class="label-text-title color-heading font-medium font-16"
                                     for="email">{{__('Email')}} <span class="text-danger">*</span></label>
                                 <input type="email" name="email" id="email" value="{{old('email')}}"
                                     class="form-control" placeholder="Type your email">
@@ -39,10 +39,10 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row mb-30">
+                        <div class="row mb-20">
                             <div class="col-md-4">
                                 <div class="input__group">
-                                    <label class="label-text-title color-heading font-medium font-16 mb-3">{{ __('Code')
+                                    <label class="label-text-title color-heading font-medium font-16">{{ __('Code')
                                         }}</label>
                                     <select class="form-control" name="area_code">
                                         <option value >{{ __('Select Code') }}</option>
@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-                                <label class="label-text-title color-heading font-medium font-16 mb-3"
+                                <label class="label-text-title color-heading font-medium font-16"
                                     for="mobile_number">{{__('Phone Number')}}</label>
                                 <input type="text" name="mobile_number" id="mobile_number"
                                     value="{{old('mobile_number')}}" class="form-control"
@@ -69,9 +69,9 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row mb-30">
+                        <div class="row mb-20">
                             <div class="col-md-6">
-                                <label class="label-text-title color-heading font-medium font-16 mb-3"
+                                <label class="label-text-title color-heading font-medium font-16"
                                     for="first_name">{{__('First Name')}} <span class="text-danger">*</span></label>
                                 <input type="text" name="first_name" id="first_name" value="{{old('first_name')}}"
                                     class="form-control" placeholder="{{__('First Name')}}">
@@ -81,7 +81,7 @@
                                 @endif
                             </div>
                             <div class="col-md-6">
-                                <label class="label-text-title color-heading font-medium font-16 mb-3"
+                                <label class="label-text-title color-heading font-medium font-16"
                                     for="last_name">{{__('Last Name')}} <span class="text-danger">*</span></label>
                                 <input type="text" name="last_name" id="last_name" value="{{old('last_name')}}"
                                     class="form-control" placeholder="{{__('Last Name')}}">
@@ -91,9 +91,9 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="row mb-30">
+                        <div class="row mb-20">
                             <div class="col-md-12">
-                                <label class="label-text-title color-heading font-medium font-16 mb-3"
+                                <label class="label-text-title color-heading font-medium font-16"
                                     for="password">{{__('Password')}} <span class="text-danger">*</span></label>
 
                                 <div class="form-group mb-0 position-relative">
@@ -111,7 +111,7 @@
 
                         </div>
 
-                        <div class="row mb-30">
+                        <div class="row mb-20">
                             <div class="col-md-12">
                                 <div>
                                     <div class="form-check">

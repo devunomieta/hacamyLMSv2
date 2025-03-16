@@ -9,13 +9,13 @@
                     <span>{{__('Global Settings')}}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.bbb-settings') }}" class="list-item {{ @$bbbSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{__('BigBlueButton Meeting Settings')}}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.jitsi-settings') }}" class="list-item {{ @$jitsiSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{__('Jitsi Meeting Settings')}}</span>
@@ -28,7 +28,7 @@
                 </a>
             </li>
             
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.agora_settings') }}" class="list-item {{ @$agoraSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{__('Agora Settings')}}</span>
@@ -40,14 +40,14 @@
                     <span>{{__('Social Login Settings')}}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.cookie-settings') }}" class="list-item {{ @$cookieSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{__('Cookie Settings')}}</span>
                 </a>
             </li>
 
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.storage-settings') }}" class="list-item {{ @$storageSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{__('Storage Settings')}}</span>
@@ -55,7 +55,7 @@
             </li>
 
 
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.vimeo-settings') }}" class="list-item {{ @$vimeoSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Vimeo Settings') }}</span>
@@ -73,7 +73,7 @@
                     <span>{{ __('Meta Management') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.generate.site_map') }}" class="list-item">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Generate Sitemap') }}</span>
@@ -85,7 +85,7 @@
                     <span>{{ __('Site Share Content') }}</span>
                 </a>
             </li> --}}
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.map-api-key') }}" class="list-item {{ @$siteMapApiKeyActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Geo Location Api Key') }}</span>
@@ -127,7 +127,7 @@
                     <span>{{ __('Private Mode') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.subscription_mode') }}" class="list-item {{ @$subscriptionModeActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Subscription Mode') }}</span>
@@ -139,7 +139,7 @@
                     <span>{{ __('SaaS Mode') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.registration_bonus') }}" class="list-item {{ @$registrationSystemActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Registration Bonus') }}</span>
@@ -151,7 +151,7 @@
                     <span>{{ __('Refund System') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.cashback_settings') }}" class="list-item {{ @$cashbackSettingActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Cashback System') }}</span>
@@ -178,7 +178,7 @@
             <li>
                 <a href="{{ route('settings.wallet_recharge_system') }}" class="list-item {{ @$walletRechargeSettingActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Wallet Recharge') }}</span>
+                    <span>{{ __('Wallet Deposit') }}</span>
                 </a>
             </li>
         </ul>
@@ -230,7 +230,7 @@
                     <span>{{ __('Payment Method') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.bank.index') }}" class="list-item {{ @$bankSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Bank') }}</span>
@@ -241,24 +241,24 @@
     </div>
     <div class="sidebar__item">
         <ul class="sidebar__mail__nav">
-            <h2>{{ __('Become an Instructor') }}</h2>
+            <h2>{{ __('Become a Tutor') }}</h2>
 
             <li>
                 <a href="{{ route('settings.instructor-feature') }}" class="list-item {{ @$instructorFeatureSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Instructor Feature') }}</span>
+                    <span>{{ __('Feature') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.instructor-procedure') }}" class="list-item {{ @$instructorProcedureSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Instructor Procedure') }}</span>
+                    <span>{{ __('Procedure') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.instructor.cms') }}" class="list-item {{ @$instructorCMSSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Instructor CMS') }}</span>
+                    <span>{{ __('CMS') }}</span>
                 </a>
             </li>
 
@@ -271,19 +271,19 @@
             <li>
                 <a href="{{ route('settings.faq.cms') }}" class="list-item {{ @$faqCMSSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('FAQ CMS') }}</span>
+                    <span>{{ __('CMS') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.faq.tab') }}" class="list-item {{ @$faqCMSTabActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('FAQ Tab') }}</span>
+                    <span>{{ __('Tabs') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.faq.question') }}" class="list-item {{ @$faqQuestionActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Question & Answer') }}</span>
+                    <span>{{ __('Q&A') }}</span>
                 </a>
             </li>
 
@@ -296,32 +296,32 @@
             <li>
                 <a href="{{ route('settings.support-ticket.cms') }}" class="list-item {{ @$supportCMSSettingsActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Support Ticket CMS') }}</span>
+                    <span>{{ __('CMS') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.support-ticket.question') }}" class="list-item {{ @$supportQuestionActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Question & Answer') }}</span>
+                    <span>{{ __('Q&A') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ route('settings.support-ticket.department') }}" class="list-item {{ @$supportDepartmentActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Support Ticket Department Field') }}</span>
+                    <span>{{ __('Department Field') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.support-ticket.priority') }}" class="list-item {{ @$supportPriorityActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Support Ticket Priority Field') }}</span>
+                    <span>{{ __('Priority Field') }}</span>
                 </a>
             </li>
             <li>
                 <a href="{{ route('settings.support-ticket.services') }}" class="list-item {{ @$supportRelatedActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
-                    <span>{{ __('Support Ticket Related Service') }}</span>
+                    <span>{{ __('Related Service') }}</span>
                 </a>
             </li>
 
@@ -350,7 +350,7 @@
                     <span>{{ __('Upgrade Skills') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.about.team-member') }}" class="list-item {{ @$subNavTeamMemberActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Team Member') }}</span>
@@ -385,7 +385,7 @@
 
         </ul>
     </div>
-    <div class="sidebar__item">
+    <div class="sidebar__item d-none">
         <ul class="sidebar__mail__nav">
             <h2>{{ __('Maintenance Mode') }}</h2>
 
@@ -413,7 +413,7 @@
                     <span>{{ __('Cache Settings') }}</span>
                 </a>
             </li>
-            <li>
+            <li class="d-none">
                 <a href="{{ route('settings.migrate-settings') }}" class="list-item {{ @$migrateActiveClass }}">
                     <img src="{{ asset('admin/images/heroicon/outline/cog.svg') }}" alt="icon">
                     <span>{{ __('Migrate Settings') }}</span>

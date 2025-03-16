@@ -29,7 +29,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="librariesDropdown"
                                    data-bs-toggle="dropdown">
-                                    {{ __('Courses') }}
+                                    {{ __('Course Categories') }}
                                 </a>
                                 <ul class="dropdown-menu {{ $selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : '' }}">
                                     @foreach ($categories as $category)
@@ -55,30 +55,12 @@
                             </li>
                         </ul>
 
-                        <form action="#">
-                            <div class="input-group landing">
-                                <button class="input-group-text pe-0" id="basic-addon1"><img
-                                        src="{{ asset('frontend/assets/img/icons-svg/search-2.svg') }}"
-                                        alt="Search"></button>
-                                <input class="form-control me-2 searchCourse" id="searchCourse" type="search"
-                                       name="keyword" value="{{ request('keyword') }}"
-                                       placeholder="{{ __('Search Course') }}..." aria-label="Search">
-                            </div>
-
-                            <!-- Search Bar Suggestion Box Start -->
-                            <div class="search-bar-suggestion-box searchBox d-none custom-scrollbar">
-                                <ul class="appendCourseSearchList">
-
-                                </ul>
-                            </div>
-                            <!-- Search Bar Suggestion Box End -->
-                        </form>
                     </div>
                     <div class="header-nav-right-side d-flex">
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
-                                   data-bs-toggle="dropdown">{{ __('Pages') }}</a>
+                                   data-bs-toggle="dropdown">{{ __('More Pages') }}</a>
                                 <ul class="dropdown-menu {{ $selectedLanguage->rtl == 1 ? 'dropdown-menu-end' : '' }}">
                                     @foreach ($staticMenus ?? [] as $staticMenu)
                                         <li><a class="dropdown-item"
@@ -98,7 +80,7 @@
                                     @$authUser->role == USER_ROLE_STUDENT ||
                                     @$authUser->role == USER_ROLE_ORGANIZATION)
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('forum.index') }}">{{ __('Forum') }}</a>
+                                    <a class="nav-link" href="{{ route('forum.index') }}">{{ __('Join Forum') }}</a>
                                 </li>
                                 @if (@$authUser->role == USER_ROLE_STUDENT)
                                     @if (@$authUser->instructor || @$authUser->organization)
@@ -108,8 +90,7 @@
                                     @else
                                         <li class="nav-item">
                                             <a class="nav-link"
-                                               href="{{ route('student.become-an-instructor') }}">{{ __('Become an
-                                                                                                                                                                            Instructor') }}</a>
+                                               href="{{ route('student.become-an-instructor') }}">{{ __('Become a Tutor') }}</a>
                                         </li>
                                     @endif
                                 @elseif(@$authUser->role == USER_ROLE_INSTRUCTOR || @$authUser->role == USER_ROLE_ORGANIZATION)
@@ -123,7 +104,7 @@
                                         @else
                                             <li class="nav-item">
                                                 <a class="nav-link"
-                                                   href="{{ route('instructor.dashboard') }}">{{ __('Instructor Panel') }}</a>
+                                                   href="{{ route('instructor.dashboard') }}">{{ __('Tutor Panel') }}</a>
                                             </li>
                                         @endif
                                     @elseif(@$authUser->organization->status == STATUS_APPROVED)
@@ -140,11 +121,11 @@
                                         @endif
                                     @elseif(@$authUser->instructor->status == STATUS_REJECTED)
                                         <li class="nav-item">
-                                            <span class="nav-link">{{ __('Blocked From Instructor Panel') }}</span>
+                                            <span class="nav-link">{{ __('Denied Access') }}</span>
                                         </li>
                                     @elseif(@$authUser->organization->status == STATUS_REJECTED)
                                         <li class="nav-item">
-                                            <span class="nav-link">{{ __('Blocked From Organization Panel') }}</span>
+                                            <span class="nav-link">{{ __('Denied Access') }}</span>
                                         </li>
                                     @else
                                         <li class="nav-item">
@@ -154,7 +135,7 @@
                                 @endif
                             @else
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('forum.index') }}">{{ __('Forum') }}</a>
+                                    <a class="nav-link" href="{{ route('forum.index') }}">{{ __('Join Forum') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('blogs') }}">{{ __('Blog') }}</a>
@@ -206,7 +187,7 @@
                                                             data-bs-toggle="pill" data-bs-target="#pills-instructor"
                                                             type="button" role="tab"
                                                             aria-controls="pills-instructor"
-                                                            aria-selected="true">{{ __('Instructor') }}</button>
+                                                            aria-selected="true">{{ __('Tutor') }}</button>
                                                 </li>
                                             </ul>
                                             <div class="tab-content" id="pills-tabContent">
@@ -243,7 +224,7 @@
                                                             <!-- Message User Item End -->
                                                         @empty
                                                             <div class="no-notification-found-box">
-                                                                <p class="text-center">{{ __('No Data Found') }}</p>
+                                                                <p class="text-center">{{ __('No Notification') }}</p>
                                                             </div>
                                                         @endforelse
                                                     </div>
@@ -293,7 +274,7 @@
                                                             <!-- Message User Item End -->
                                                         @empty
                                                             <div class="no-notification-found-box">
-                                                                <p class="text-center">{{ __('No Data Found') }}</p>
+                                                                <p class="text-center">{{ __('No Notification') }}</p>
                                                             </div>
                                                         @endforelse
                                                     </div>
@@ -380,7 +361,7 @@
                                                     <li><a class="dropdown-item"
                                                            href="{{ route('student.my-learning') }}"><span
                                                                 class="iconify"
-                                                                data-icon="akar-icons:book"></span>{{ __('My Learning') }}
+                                                                data-icon="akar-icons:book"></span>{{ __('My Panel') }}
                                                         </a></li>
                                                     @if (@$authUser->role == USER_ROLE_STUDENT && auth()->user()->student->organization_id != null)
                                                         <li>
@@ -388,7 +369,7 @@
                                                                href="{{ route('student.organization_course') }}"><span
                                                                     class="iconify mr-15"
                                                                     data-icon="ion:log-in-outline"></span>
-                                                                {{ __('Organization Course') }}</a>
+                                                                {{ __('My Org Courses') }}</a>
                                                         </li>
                                                     @endif
                                                     <li>
@@ -396,7 +377,7 @@
                                                            href="{{ route('student.my-consultation') }}">
                                                             <span class="iconify mr-15"
                                                                   data-icon="ic:round-support-agent"></span>
-                                                            {{ __('My Consultation') }}
+                                                            {{ __('Consultation') }}
                                                         </a>
                                                     </li>
                                                     @if (isAddonInstalled('LMSZAIPRODUCT'))
@@ -405,7 +386,7 @@
                                                                href="{{ route('lms_product.student.purchase_list') }}">
                                                                 <span class="iconify mr-15"
                                                                       data-icon="carbon:product"></span>
-                                                                {{ __('My Product') }}
+                                                                {{ __('Products') }}
                                                             </a>
                                                         </li>
                                                     @endif
@@ -414,7 +395,7 @@
                                                             <a class="dropdown-item"
                                                                href="{{ route('student.chat.index') }}">
                                                                 <span class="iconify" data-icon="ic:outline-chat"></span>
-                                                                {{ __('Chat') }}</a>
+                                                                {{ __('Chats') }}</a>
                                                         </li>
                                                     @endif
                                                     <li><a class="dropdown-item"
@@ -489,8 +470,7 @@
                                                             <a class="dropdown-item"
                                                                href="{{ route('affiliate.become-an-affiliate') }}"><span
                                                                     class="iconify"
-                                                                    data-icon="tabler:affiliate"></span>{{ __('Become an
-                                                                                                                                                                                                                                                    Affiliator') }}
+                                                                    data-icon="tabler:affiliate"></span>{{ __('Become an Affiliate') }}
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -506,7 +486,7 @@
                                                     <ul class="user-dropdown-item-box">
                                                         <li>
                                                             <a class="dropdown-item" href="#"><span class="iconify"
-                                                                                                    data-icon="tabler:affiliate"></span>{{ __('Affiliate Request Rejected') }}
+                                                                                                    data-icon="tabler:affiliate"></span>{{ __('Affiliate - Rejected') }}
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -516,7 +496,7 @@
                                                             <a class="dropdown-item"
                                                                href="{{ route('affiliate.dashboard') }}"><span
                                                                     class="iconify" data-icon="tabler:affiliate"></span>
-                                                                {{ __('Affiliator Panel') }}
+                                                                {{ __('Affiliate Panel') }}
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -536,7 +516,7 @@
                                                                       d="M4 13h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1zm-1 7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v4zm10 0a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v7zm1-10h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1z">
                                                                 </path>
                                                             </svg>
-                                                            {{ __('Admin Dashboard') }}
+                                                            {{ __('Admin Panel') }}
                                                         </a>
                                                     </li>
                                                 </ul>

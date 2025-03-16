@@ -1,8 +1,8 @@
 .hero {
   &-banner {
-    padding: toRem(181) 0 toRem(615);
+    padding: 250px 0 0px !important;
     @media screen and (max-width: 991px) {
-      padding: toRem(150) 0 toRem(50) !important;
+      padding: 150px 0 50px !important;
       background-image: none !important;
     }
     .instructor-price-cutoff.badge {

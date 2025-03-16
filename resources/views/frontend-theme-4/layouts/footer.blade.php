@@ -1,4 +1,4 @@
-<footer class="footer-area footer-gradient-bg position-relative landing-footer sf-landing-footer landing-footer-learning">
+<footer class="footer-area footer-gradient-bg position-relative landing-footer sf-landing-footer landing-footer-learning" style="background: #411472 !important;">
     <div class="section-overlay">
         <div class="container">
             <!-- footer-widget-area -->
@@ -107,11 +107,7 @@
                 <div class="col-12 col-md-12 col-lg-4">
                     <div class="copyright-text text-center">
                         <div class="footer__copyright__left">
-                            @if(get_option('iel'))
-                                <p class="text-white font-13">{{ __(get_option(readableValue('YXBwX2NvcHlyaWdodA=='))) }}</p>
-                            @else
-                                <p class="text-white font-13">{{readableValue('wqkgMjAyNCBMTVNaYWkgfCBEZXNpZ24gJiBEZXZlbG9wZWQgQnkgWmFpbmlrbGFiIA==')}}</p>
-                            @endif
+                            <p class="text-white font-13">© 2025 HACAMY LMS | Learning Management System</p>
                         </div>
 
                     </div>

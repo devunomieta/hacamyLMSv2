@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\PaymentApiController;
-use App\Http\Controllers\Auth\LtcController;
+// use App\Http\Controllers\Auth\LtcController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\CertificateVerifyController;
 use App\Http\Controllers\Common\WalletRechargeController;

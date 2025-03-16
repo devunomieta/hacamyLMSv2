@@ -33,26 +33,77 @@
     <link rel="stylesheet" href="{{ asset('frontend-theme-4/assets/scss/style.css') }}">
 @endpush
 
-@section('content')
-
-    @php
-        $bannerImage = @$home->banner_image;
-        if(env('IS_LOCAL', 0)){
-            $bannerImage = get_option('banner_image_'.get_option('theme', THEME_DEFAULT));
+<style>
+    .hero-banner-content .text-content .sub-title-wrap p {
+        font-size: 13px !important;
+    }
+    .hero-banner {
+        padding: 200px 0 0px !important;
+    }
+    @media screen and (max-width: 991px) {
+        .hero-banner {
+            padding: 150px 0 50px !important;
+            background-image: none !important;
         }
-    @endphp
-        <!-- Hero Banner -->
-    <section class="hero-banner" data-background="{{ getImageFile($bannerImage) }}">
+    }
+    /* General styles for the container */
+    .sub-title-wrap {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    /* Fade and loop animation */
+    @keyframes fadeLoop {
+        0%, 100% {
+            opacity: 0; /* Start and end with invisible text */
+        }
+        25%, 75% {
+            opacity: 1; /* Fade in and out */
+        }
+    }
+    
+    /* Apply animation to each <p> tag */
+    .fade-loop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0; /* Start invisible */
+        animation: fadeLoop 6s infinite; /* 6s duration, loop forever */
+    }
+    
+    /* Delay animations for each <p> tag */
+    .fade-loop:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .fade-loop:nth-child(2) {
+        animation-delay: 2s; /* Delay for the second item */
+    }
+    .fade-loop:nth-child(3) {
+        animation-delay: 4s; /* Delay for the third item */
+    }
+    /* Add more delays if you have more items */
+</style>
+
+@section('content')
+<!-- Hero Banner -->
+@php
+    $bannerImage = @$home->banner_image;
+    if (env('IS_LOCAL', 0)) {
+        $bannerImage = get_option('banner_image_' . get_option('theme', THEME_DEFAULT));
+    }
+@endphp
+    <section class="hero-banner" data-backg round="{{ getImageFile($bannerImage) }}" sty le="background-size: contain; background-position: center bottom;">
         <div class="container">
             <div class="hero-banner-content">
                 <div class="text-content">
                     <div class="sub-title-wrap">
                         @foreach(@$home->banner_mini_words_title ?? [] as $banner_mini_word)
-                            <p>{{ __($banner_mini_word) }}</p>
+                            <p class="fade-loop">{{ __($banner_mini_word) }}</p>
                         @endforeach
                     </div>
                     <div class="titleText-wrap">
-                        <h4 class="title">
+                        <h4 class="title typing-animation ">
                             <span>{{ __(@$home->banner_first_line_title) }}</span>
                             {{ __(@$home->banner_second_line_title) }}
                             <span>{{ __(@$home->banner_third_line_title) }}</span>
@@ -74,9 +125,9 @@
     </section>
 
     <!-- Core Features -->
-    <section class="core-features core-features-lan {{ @$home->special_feature_area == 1 ? '' : 'd-none' }}">
+    <section class="core-features core-features-lan {{ @$home->special_feature_area == 1 ? '' : 'd-none' }}" style="background: #411472;">
         <div class="container">
-            <div class="core-features-content">
+            <div class="core-features-content" style="gap: 0 !important">
                 <!--  -->
                 <div class="title-wrap">
                     <div class="row rg-20 justify-content-lg-between justify-content-center">
@@ -93,7 +144,7 @@
                 <!--  -->
                 <div class="row rg-20">
                     <div class="col-lg-4 col-sm-6">
-                        <div class="core-features-item core-features-item-lan">
+                        <div class="core-features-item core-features-item-lan" style="background: #5c3995;">
                             <div class="icon">
                                 <img src="{{ getImageFile(get_option('home_special_feature_first_logo')) }}" alt=""/>
                             </div>
@@ -104,7 +155,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <div class="core-features-item core-features-item-lan">
+                        <div class="core-features-item core-features-item-lan" style="background: #5c3995;">
                             <div class="icon">
                                 <img src="{{ getImageFile(get_option('home_special_feature_second_logo')) }}" alt=""/>
                             </div>
@@ -115,7 +166,7 @@
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <div class="core-features-item core-features-item-lan">
+                        <div class="core-features-item core-features-item-lan" style="background: #5c3995;">
                             <div class="icon">
                                 <img src="{{ getImageFile(get_option('home_special_feature_third_logo')) }}" alt=""/>
                             </div>
@@ -129,6 +180,24 @@
             </div>
         </div>
     </section>
+    
+    @if($home->faq_area == 1)
+        <!-- FAQ -->
+        <section class="bg-lan-bg faq-section faq-section-lan" style="padding: 0 !important;">
+            <div class="container">
+                <div class="faq-section-content">
+                    <!--  -->
+                    <div class="client-logo-wrap">
+                        <ul class="client-logo">
+                            @foreach($clients as $client)
+                                <li><img src="{{ getImageFile($client->image_path) }}" alt="{{ $client->name }}"/></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 
     @if(!get_option('private_mode') || !auth()->guest())
         @if($home->courses_area == 1)
@@ -141,9 +210,6 @@
                             <div class="row justify-content-between align-items-center rg-20">
                                 <div class="col-lg-8">
                                     <div class="d-flex align-items-lg-center align-items-start g-26">
-                                        <div class="icon d-flex max-w-60 flex-shrink-0">
-                                            <img src="{{ getImageFile(get_option('course_logo')) }}" alt="Course"/>
-                                        </div>
                                         <div class="content">
                                             <h4 class="title">{{ __(get_option('course_title')) }}</h4>
                                             <p class="text">{{ __(get_option('course_subtitle')) }}</p>
@@ -152,7 +218,7 @@
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="d-flex justify-content-lg-end">
-                                        <a href="{{ route('courses') }}" class="btn-outline-lan">{{__('View All')}} <i
+                                        <a href="{{ route('courses') }}" class="btn-outline-lan">{{__('View All Courses')}} <i
                                                 class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>
@@ -653,7 +719,7 @@
 
     @if($home->customer_says_area == 1)
         <!-- Testimonials Section -->
-        <section class="testimonial-section testimonial-section-lan bg-purple overflow-hidden">
+        <section class="testimonial-section testimonial-section-lan overflow-hidden" style="background: #411472;">
             <div class="container">
                 <div class="testimonial-section-content">
                     <!--  -->
@@ -673,7 +739,7 @@
                         <div class="lan-testimonial-slider owl-carousel">
                         @foreach($customerSayItems as $customerSayItem)
 {{--                            <div class="col-lg-6">--}}
-{{--                                <div class="testimonial-item-one">--}}
+{{--                                <div class="testimonial-item-one" style="background: #5c3995;">--}}
 {{--                                    <div class="author">--}}
 {{--                                        <div class="img">--}}
 {{--                                            <img--}}
@@ -711,7 +777,7 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 
-                                <div class="testimonial-item-one">
+                                <div class="testimonial-item-one" style="background: #5c3995;">
                                     <div class="author">
                                         <div class="img">
                                             <img
@@ -1124,20 +1190,12 @@
                                              data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
                                                 <p> {{ __($faqQuestion->answer) }} </p>
-                                            </div>
+                                            </div> 
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
-                    </div>
-                    <!--  -->
-                    <div class="client-logo-wrap">
-                        <ul class="client-logo">
-                            @foreach($clients as $client)
-                                <li><img src="{{ getImageFile($client->image_path) }}" alt="{{ $client->name }}"/></li>
-                            @endforeach
-                        </ul>
                     </div>
                 </div>
             </div>

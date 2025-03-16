@@ -26,7 +26,7 @@
                             <h5 class="mb-1">{{__('Sign In')}}</h5>
                             <p class="font-14 mb-30">{{__('New User')}} ? <a href="{{route('sign-up')}}" class="color-hover text-decoration-underline font-medium">{{__('Create an Account')}}</a></p>
 
-                            <div class="row mb-30">
+                            <div class="row mb-20">
                                 <div class="col-md-12">
                                     <label class="label-text-title color-heading font-medium font-16 mb-3">{{__('Email or Phone')}}</label>
                                     <input type="text" name="email" value="{{old('email')}}" class="form-control email" placeholder="{{ __('Type your email or phone number') }}">
@@ -35,7 +35,7 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="row mb-30">
+                            <div class="row mb-20">
                                 <div class="col-md-12">
                                     <label class="label-text-title color-heading font-medium font-16 mb-3">{{__('Password')}}</label>
                                     <div class="form-group mb-0 position-relative">
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-30">
+                            <div class="row mb-20">
                                 <div class="col-md-12"><a href="{{ route('forget-password') }}" class="color-hover text-decoration-underline font-medium">{{__('Forgot Password')}}?</a></div>
                             </div>
                             <div class="row mb-2">
